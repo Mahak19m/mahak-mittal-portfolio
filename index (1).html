@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mahak Mittal — AI/ML Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #12161F;
+    --ink-soft: #1B212E;
+    --paper: #EDEAE9;
+    --paper-dim: #E1DDD6;
+    --text-dark: #EDEAE2;
+    --text-dim: #9BA1AE;
+    --text-light: #12161F;
+    --text-light-dim: #5B5F6B;
+    --amber: #D4A24E;
+    --teal: #4F8A82;
+    --serif: 'Fraunces', serif;
+    --sans: 'Inter', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--ink);
+    color: var(--text-dark);
+    font-family: var(--sans);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: inherit; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ---------- NAV ---------- */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(18, 22, 31, 0.88);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(237, 234, 226, 0.08);
+  }
+  nav .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+  }
+  .nav-mark {
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--amber);
+    letter-spacing: 0.02em;
+  }
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+    font-size: 14px;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-dim);
+    transition: color 0.2s ease;
+  }
+  .nav-links a:hover, .nav-links a:focus-visible { color: var(--text-dark); }
+
+  /* ---------- HERO ---------- */
+  header.hero {
+    position: relative;
+    padding: 120px 0 100px;
+    border-bottom: 1px solid rgba(237, 234, 226, 0.08);
+    overflow: hidden;
+  }
+  header.hero::before {
+    content: '';
+    position: absolute;
+    top: -220px;
+    right: -160px;
+    width: 560px;
+    height: 560px;
+    background: radial-gradient(circle, rgba(212, 162, 78, 0.16) 0%, rgba(79, 138, 130, 0.10) 45%, transparent 70%);
+    filter: blur(10px);
+    pointer-events: none;
+  }
+  header.hero .wrap { position: relative; z-index: 1; }
+  .hero-role {
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--teal);
+    margin-bottom: 24px;
+    height: 20px;
+  }
+  .hero-role .cursor {
+    display: inline-block;
+    width: 8px;
+    height: 15px;
+    background: var(--teal);
+    margin-left: 2px;
+    vertical-align: -2px;
+    animation: blink 1s step-end infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  h1.hero-name {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(48px, 7vw, 84px);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+    max-width: 780px;
+  }
+
+  .hero-sub {
+    margin-top: 28px;
+    max-width: 560px;
+    font-size: 18px;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+
+  .hero-links {
+    margin-top: 40px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .hero-links a {
+    font-family: var(--mono);
+    font-size: 13px;
+    text-decoration: none;
+    padding: 10px 18px;
+    border: 1px solid rgba(237, 234, 226, 0.18);
+    border-radius: 2px;
+    color: var(--text-dark);
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  .hero-links a.primary {
+    background: var(--amber);
+    color: var(--ink);
+    border-color: var(--amber);
+  }
+  .hero-links a:hover, .hero-links a:focus-visible {
+    border-color: var(--amber);
+  }
+  .hero-links a.primary:hover { background: #c69144; }
+
+  .hero-stats {
+    display: flex;
+    gap: 48px;
+    margin-top: 72px;
+    flex-wrap: wrap;
+  }
+  .hero-stats div { min-width: 100px; }
+  .hero-stats .num {
+    font-family: var(--serif);
+    font-size: 34px;
+    color: var(--amber);
+    line-height: 1;
+  }
+  .hero-stats .label {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-top: 8px;
+  }
+
+  /* ---------- SECTION HEADS ---------- */
+  .section {
+    padding: 88px 0;
+    border-bottom: 1px solid rgba(237, 234, 226, 0.08);
+  }
+  .section.on-paper {
+    background: var(--paper);
+    color: var(--text-light);
+    border-bottom: 1px solid var(--paper-dim);
+  }
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+  .section-num {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--amber);
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 32px;
+  }
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--paper-dim);
+    border: 1px solid var(--paper-dim);
+  }
+  .skill-domain {
+    background: var(--paper);
+    padding: 32px;
+  }
+  .skill-domain h3 {
+    font-family: var(--mono);
+    font-size: 13px;
+    text-transform: lowercase;
+    color: var(--text-light-dim);
+    margin-bottom: 16px;
+    border-bottom: 2px solid var(--teal);
+    display: inline-block;
+    padding-bottom: 6px;
+  }
+  .skill-domain ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 10px;
+  }
+  .skill-domain li {
+    font-size: 14px;
+    font-family: var(--sans);
+    color: var(--text-light);
+  }
+  .skill-domain li:not(:last-child)::after {
+    content: '·';
+    margin-left: 10px;
+    color: var(--text-light-dim);
+  }
+
+  /* ---------- PROJECTS ---------- */
+  .project-list {
+    display: flex;
+    flex-direction: column;
+  }
+  .project-row {
+    display: grid;
+    grid-template-columns: 90px 1fr auto;
+    gap: 24px;
+    align-items: start;
+    padding: 28px 0;
+    border-top: 1px solid rgba(237, 234, 226, 0.1);
+    text-decoration: none;
+    color: inherit;
+  }
+  .project-row:last-child { border-bottom: 1px solid rgba(237, 234, 226, 0.1); }
+  .project-index {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text-dim);
+    padding-top: 4px;
+  }
+  .project-body h3 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+  .project-body p {
+    color: var(--text-dim);
+    font-size: 15px;
+    max-width: 560px;
+    margin-bottom: 12px;
+  }
+  .project-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .project-tags span {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--teal);
+    border: 1px solid rgba(79, 138, 130, 0.4);
+    padding: 3px 8px;
+    border-radius: 2px;
+  }
+  .project-link {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--amber);
+    padding-top: 4px;
+    white-space: nowrap;
+  }
+  .project-row {
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+  .project-row:hover {
+    background: rgba(212, 162, 78, 0.04);
+    transform: translateX(4px);
+  }
+  .project-row:hover .project-body h3 { color: var(--amber); transition: color 0.2s ease; }
+
+  /* ---------- EDUCATION / ACHIEVEMENTS ---------- */
+  .edu-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 48px;
+  }
+  .edu-card {
+    background: var(--paper);
+    border: 1px solid var(--paper-dim);
+    padding: 28px 32px;
+  }
+  .edu-card h3 {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 17px;
+    margin-bottom: 4px;
+  }
+  .edu-card .edu-org {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--teal);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .edu-card .edu-period {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-light-dim);
+    margin-bottom: 14px;
+  }
+  .edu-card p { font-size: 14px; color: var(--text-light-dim); }
+
+  .achieve-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .achieve-list li {
+    display: flex;
+    gap: 14px;
+    align-items: baseline;
+    font-size: 15px;
+  }
+  .achieve-list .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--amber);
+    flex-shrink: 0;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 720px) {
+    .edu-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- CERTIFICATIONS ---------- */
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: rgba(237, 234, 226, 0.08);
+    border: 1px solid rgba(237, 234, 226, 0.08);
+  }
+  .cert-card {
+    background: var(--ink);
+    padding: 26px 28px;
+  }
+  .cert-card h3 {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 4px;
+    color: var(--text-dark);
+  }
+  .cert-card .cert-org {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--teal);
+    display: block;
+    margin-bottom: 8px;
+  }
+  .cert-card .cert-meta {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    line-height: 1.7;
+  }
+
+  /* ---------- EXPERIENCE ---------- */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .tl-item {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 24px;
+    padding: 24px 0;
+    border-top: 1px solid var(--paper-dim);
+  }
+  .tl-item:last-child { border-bottom: 1px solid var(--paper-dim); }
+  .tl-period {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--text-light-dim);
+    padding-top: 2px;
+  }
+  .tl-role h3 {
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 17px;
+    margin-bottom: 4px;
+  }
+  .tl-role .tl-org {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--teal);
+    margin-bottom: 10px;
+    display: block;
+  }
+  .tl-role p {
+    font-size: 15px;
+    color: var(--text-light-dim);
+    max-width: 600px;
+  }
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  footer {
+    padding: 96px 0 64px;
+  }
+  footer .section-title {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 40px;
+    max-width: 500px;
+    margin-bottom: 32px;
+  }
+  .contact-row {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    margin-bottom: 64px;
+  }
+  .contact-row a {
+    font-family: var(--mono);
+    font-size: 14px;
+    text-decoration: none;
+    color: var(--text-dark);
+    border-bottom: 1px solid rgba(237, 234, 226, 0.25);
+    padding-bottom: 2px;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  .contact-row a:hover, .contact-row a:focus-visible { color: var(--amber); border-color: var(--amber); }
+  .foot-meta {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--text-dim);
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 720px) {
+    .wrap { padding: 0 20px; }
+    .nav-links { display: none; }
+    header.hero { padding: 80px 0 64px; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .cert-grid { grid-template-columns: 1fr; }
+    .project-row { grid-template-columns: 1fr; gap: 8px; }
+    .project-link { padding-top: 0; }
+    .tl-item { grid-template-columns: 1fr; gap: 6px; }
+  }
+
+  /* focus visibility */
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--amber);
+    outline-offset: 2px;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <span class="nav-mark">mahak.mittal()</span>
+    <ul class="nav-links">
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-role"><span id="roleText">AI/ML engineer in training</span><span class="cursor"></span></div>
+    <h1 class="hero-name">I build the agent,<br>the API beneath it,<br>and the data it learns from.</h1>
+    <p class="hero-sub">Mahak Mittal — a B.Tech CSE (AI &amp; ML) student who works across the stack: FastAPI and Node backends, PostgreSQL data layers, and LLM-driven agents on top. 100+ LeetCode problems solved, 8 certifications earned, and always mid-way through the next build.</p>
+    <div class="hero-links">
+      <a href="#work" class="primary">View projects</a>
+      <a href="mailto:mahakmittal313@gmail.com">Email me</a>
+      <a href="https://github.com/Mahak19m" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/mahak-mittal-9937782a0" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="num">3</div><div class="label">projects shipped</div></div>
+      <div><div class="num">100+</div><div class="label">LeetCode solved</div></div>
+      <div><div class="num">8</div><div class="label">certifications</div></div>
+    </div>
+  </div>
+</header>
+
+<section class="section on-paper" id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Where I work</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-domain">
+        <h3>languages</h3>
+        <ul>
+          <li>Java</li><li>Python</li><li>JavaScript</li><li>TypeScript</li><li>SQL</li><li>HTML/CSS</li>
+        </ul>
+      </div>
+      <div class="skill-domain">
+        <h3>frontend &amp; backend</h3>
+        <ul>
+          <li>React.js</li><li>Node.js</li><li>Express.js</li><li>FastAPI</li><li>Flask</li><li>REST APIs</li><li>SQLAlchemy</li><li>JWT Auth</li>
+        </ul>
+      </div>
+      <div class="skill-domain">
+        <h3>ai &amp; ml</h3>
+        <ul>
+          <li>LLMs</li><li>AI Agents</li><li>Mem0</li><li>NLP</li><li>scikit-learn</li><li>TF-IDF</li>
+        </ul>
+      </div>
+      <div class="skill-domain">
+        <h3>core cs &amp; tools</h3>
+        <ul>
+          <li>Data Structures &amp; Algorithms</li><li>OOP</li><li>OS</li><li>Computer Networks</li><li>DBMS</li><li>PostgreSQL</li><li>Git</li><li>AWS</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Selected work</h2>
+    </div>
+    <div class="project-list">
+
+      <a class="project-row" href="https://github.com/Mahak19m/mem0-ai-memory" target="_blank" rel="noopener">
+        <span class="project-index">01</span>
+        <div class="project-body">
+          <h3>Self-Learning AI Agent</h3>
+          <p>An AI agent with persistent memory that stores and retrieves relevant information from previous user interactions. Integrated Mem0 for context-aware, memory-driven responses that stay consistent across sessions.</p>
+          <div class="project-tags"><span>Python</span><span>Mem0</span><span>LLM</span><span>AI Agents</span></div>
+        </div>
+        <span class="project-link">View →</span>
+      </a>
+
+      <a class="project-row" href="https://github.com/Mahak19m/SmartTranify" target="_blank" rel="noopener">
+        <span class="project-index">02</span>
+        <div class="project-body">
+          <h3>AI Fitness Backend</h3>
+          <p>REST APIs built with FastAPI for authentication, registration, and profile management, backed by PostgreSQL via SQLAlchemy ORM, with JWT authentication and bcrypt password hashing for secure access.</p>
+          <div class="project-tags"><span>FastAPI</span><span>PostgreSQL</span><span>JWT</span><span>REST APIs</span></div>
+        </div>
+        <span class="project-link">View →</span>
+      </a>
+
+      <a class="project-row" href="https://psycheinsight.netlify.app" target="_blank" rel="noopener">
+        <span class="project-index">03</span>
+        <div class="project-body">
+          <h3>PsycheInsight — Full-Stack Psychology App</h3>
+          <p>A full-stack web application built with React.js and Node.js, using reusable components, REST API integration, a responsive UI, and robust error handling for a smoother user experience.</p>
+          <div class="project-tags"><span>React.js</span><span>Node.js</span><span>REST APIs</span></div>
+        </div>
+        <span class="project-link">View →</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" id="certifications">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Certifications</h2>
+    </div>
+    <div class="cert-grid">
+      <div class="cert-card">
+        <h3>Certificate of Excellence</h3>
+        <span class="cert-org">UnsaidTalks Education</span>
+        <div class="cert-meta">Issued Jul 2026<br>Credential ID 6513739CD3BA</div>
+      </div>
+      <div class="cert-card">
+        <h3>Fundamentals of Machine Learning and Artificial Intelligence</h3>
+        <span class="cert-org">Amazon Web Services (AWS)</span>
+        <div class="cert-meta">Issued Jul 2026</div>
+      </div>
+      <div class="cert-card">
+        <h3>AI Skills Fest 2026</h3>
+        <span class="cert-org">Microsoft</span>
+        <div class="cert-meta">Issued Jun 2026</div>
+      </div>
+      <div class="cert-card">
+        <h3>YUVA AI For All</h3>
+        <span class="cert-org">TCS iON &amp; IndiaAI</span>
+        <div class="cert-meta">Issued May 2026</div>
+      </div>
+      <div class="cert-card">
+        <h3>AI Careers for Women Program</h3>
+        <span class="cert-org">Microsoft India &amp; Edunet Foundation</span>
+        <div class="cert-meta">Issued May 2026<br>Credential ID AICW26_100236</div>
+      </div>
+      <div class="cert-card">
+        <h3>pandas</h3>
+        <span class="cert-org">Kaggle</span>
+        <div class="cert-meta">Issued May 2026</div>
+      </div>
+      <div class="cert-card">
+        <h3>Microsoft Certified: Data Analyst Associate</h3>
+        <span class="cert-org">Simplilearn</span>
+        <div class="cert-meta">Issued Apr 2026 · Expires Apr 2031<br>Credential ID 10122177</div>
+      </div>
+      <div class="cert-card">
+        <h3>Data Analytics Job Simulation</h3>
+        <span class="cert-org">Deloitte Australia · Forage</span>
+        <div class="cert-meta">Issued Aug 2025<br>Credential ID RC3PJbgQuhJDzi6Md</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section on-paper" id="education">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Education &amp; growth</h2>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <h3>B.Tech — Computer Science &amp; Engineering (AI &amp; ML)</h3>
+        <span class="edu-org">Dr. Ambedkar Institute of Technology for Divyangjan, Kanpur, Uttar Pradesh</span>
+        <span class="edu-period">2023 — 2027</span>
+        <p>Coursework in data structures, OOP, DBMS, operating systems, computer networks, and machine learning. Built the three projects above alongside coursework, spanning backend systems, data, and LLM-based agents.</p>
+        <p style="margin-top: 14px;">Class XII — KDS International School, Salempur Road, Mathura (2022)<br>Class X — Baba Kadhera Singh Vidya Mandir, Akkha Sonkh, Mathura (2020)</p>
+      </div>
+      <div>
+        <ul class="achieve-list">
+          <li><span class="dot"></span>Solved 100+ LeetCode problems in Java, focused on DSA fundamentals.</li>
+          <li><span class="dot"></span>1st Runner-up, Placement Readiness Challenge — UnsaidTalks Education Pvt. Ltd. (July 2026).</li>
+          <li><span class="dot"></span>Consistently participating in the #100DaysOfCode challenge.</li>
+          <li><span class="dot"></span>Earned 8 certifications across AI, ML, and data analytics from AWS, Microsoft, Kaggle, and Forage.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2 class="section-title">Let's work together.</h2>
+    <div class="contact-row">
+      <a href="mailto:mahakmittal313@gmail.com">mahakmittal313@gmail.com</a>
+      <a href="tel:+918979257995">+91-8979257995</a>
+      <a href="https://github.com/Mahak19m" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/mahak-mittal-9937782a0" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+    <div class="foot-meta">CSE (AI/ML) student, seeking opportunities in AI &amp; tech — built with plain HTML/CSS/JS</div>
+  </div>
+</footer>
+
+<script>
+  const roles = ['AI/ML engineer in training', 'backend developer', 'data analyst', 'LLM & agent builder'];
+  let i = 0;
+  const el = document.getElementById('roleText');
+  setInterval(() => {
+    i = (i + 1) % roles.length;
+    el.style.opacity = 0;
+    setTimeout(() => {
+      el.textContent = roles[i];
+      el.style.opacity = 1;
+    }, 250);
+  }, 2400);
+  el.style.transition = 'opacity 0.25s ease';
+</script>
+
+</body>
+</html>
